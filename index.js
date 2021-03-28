@@ -1,4 +1,4 @@
 function increase(sign) {
-    let value = document.getElementById('output-el');
-    value.innerText = eval(value.innerText + sign + '1');
+    let output = document.getElementById('output-el');
+    output.value = eval(output.value + sign + '1');
 }
