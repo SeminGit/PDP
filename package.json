@@ -1,0 +1,21 @@
+{
+  "name": "mtdw_task2_project",
+  "version": "1.0.0",
+  "description": "This is a proeject for task2 containing npm rep installation",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeminGit/MTWD.git"
+  },
+  "author": "Anton Seminski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeminGit/MTWD/issues"
+  },
+  "homepage": "https://github.com/SeminGit/MTWD#readme"
+}
