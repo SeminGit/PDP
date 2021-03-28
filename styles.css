@@ -1,0 +1,30 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 100px;
+}
+
+.output-label {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 30px;
+    text-align: center;
+    border: black dot-dash;
+}
+
+.output-label:hover {
+    font-size: 60px;
+}
+
+button {
+    background: coral;
+}
+
+button:hover {
+    border: lime solid;
+    background: lime;
+}
+
+html {
+    background: white;
+}
