@@ -18,6 +18,7 @@
 
 button {
     background: coral;
+    font-size: 30px;
 }
 
 button:hover {
