@@ -1,0 +1,14 @@
+<aura:component>
+    <aura:registerEvent name="removeProductFromCompareListEvent" type="c:ProductShippedEvent" />
+    <aura:registerEvent name="productSelected" type="c:ProductShippedEvent" />
+    <aura:registerEvent name="isOrderWindowOpenedEvent" type="c:BooleanShippedEvent" />
+    <aura:registerEvent name="isCompareWindowOpenedEvent" type="c:BooleanShippedEvent" />
+    <aura:attribute name="currency" type="Object" />
+    <aura:attribute name="productPrice" type="Decimal" />
+    <aura:attribute name="product" type="Product2" />
+
+    <lightning:buttonIcon iconName="utility:close" variant="bare"
+        alternativeText="Close window" />
+    <c:DisplayScooterDataComponent product="{!v.product}" productPrice="{!v.productPrice}" currency="{!v.currency}" />
+    <lightning:button class="slds-size_12-of-12 slds-button  slds-button_stretch" variant="success" label="{#$Label.c.Order}" onclick = "{!c.orderProductClicked}"/>
+</aura:component>

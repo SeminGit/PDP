@@ -1,0 +1,77 @@
+<aura:component controller="ProductController">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:registerEvent name="pageTurnedEvent" type="c:TurnPageEvent" />
+    <aura:method name="setProducts" action="{!c.showSortedProducts}">
+        <aura:attribute name="filters" type="Map" />
+        <aura:attribute name="operators" type="Map" />
+    </aura:method>
+    <aura:method name="setNewProducts" action="{!c.showProducts}">
+        <aura:attribute name="filters" type="Map" />
+        <aura:attribute name="operators" type="Map" />
+    </aura:method>
+    <aura:attribute name="productsList" type="List" />
+    <aura:attribute name="pageSizesList" type="List" />
+    <aura:attribute name="pageSize" type="Integer" default="6" />
+    <aura:attribute name="page" type="Integer" default="1" />
+    <aura:attribute name="pagesAmount" type="Integer" />
+    <aura:attribute name="totalSize" type="Integer" />
+    <aura:attribute name="currencyRate" type="Object" />
+    <aura:attribute name="isSpinnerActive" type="Boolean" />
+
+    <div class="slds-box">
+        <aura:if isTrue="{!v.productsList}">
+            <!-- component that displays list -->
+            <c:DisplayProductsListComponent productsList="{!v.productsList}" currency="{!v.currencyRate}" />
+            <div class="slds-grid ">
+                <!-- <div class="slds-col ">
+                    <lightning:button label="First" title = "First"
+                    class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch" disabled="{!v.page == 1}"
+                    onclick="{!c.changePage}" />
+                </div> -->
+                <div class="slds-col">
+                    <div id="leftAlligment">
+                        <lightning:buttonIcon title="Previous" iconName="utility:chevronleft" variant="border"
+                            size="xx-large" disabled="{!v.page == 1}" onclick="{!c.changePage}"
+                            alternativeText="previous page" />
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-12">
+                    <!-- pageSizesField     pageSizeChanged      pageSizesList  -->
+                    <div id="centerAlligment">
+                        <lightning:select aura:id="pageSizesField" onchange="{!c.pageSizeChanged}" value="{!v.pageSize}"> 
+                            <aura:iteration items="{!v.pageSizesList}" var="item">
+                                <option text="{!item}" value="{!item}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <div id="rightAlligment">
+                        <lightning:buttonIcon title="Next" iconName="utility:chevronright" variant="border"
+                            size="xx-large" disabled="{!v.page == v.pagesAmount}" onclick="{!c.changePage}"
+                            alternativeText="next page" />
+                    </div>
+                </div>
+                <!-- <div class="slds-col">
+                    <lightning:button label="Last" title = "Last"
+                        class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch"
+                        disabled="{!v.page == v.pagesAmount}" onclick="{!c.changePage}" />
+                </div> -->
+            </div>
+            <div class="slds-align_absolute-center">
+                Products on page
+            </div>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.isSpinnerActive}">
+                    <lightning:spinner id="spinner" alternativeText="Loading" size="small" />
+                    <aura:set attribute="else">
+                        {#$Label.c.EmprtyCompare}
+                    </aura:set>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </div>
+    <!--  -->
+    <!-- buttons -->
+    <!---->
+</aura:component>

@@ -1,0 +1,28 @@
+<aura:component>
+    <aura:handler name="isCaseModalWindowOpenEvent" event="c:BooleanShippedEvent" action="{!c.closeWindow}" />
+    <aura:method name="setVisible" action="{!c.showComponent}">
+        <aura:attribute name="isVisible" type="Boolean" />
+    </aura:method>
+    <aura:attribute name="isModalWindowOpen" type="Boolean" />
+    <aura:attribute name="isComponentActive" type="Boolean" />
+
+    <aura:if isTrue="{!v.isComponentActive}">
+        <aura:if isTrue="{!v.isModalWindowOpen}">
+            <c:CaseModalWindowComponent />
+            <aura:set attribute="else">
+                <lightning:card>
+                    <aura:set attribute="actions">
+                        <lightning:buttonIcon iconName="utility:close" variant="bare" onclick="{! c.closeComponent }"
+                            alternativeText="Close help" />
+                    </aura:set>
+                    <ui:message severity="error" closable="false">
+                        {!$Label.c.ErrorMessage}
+                    </ui:message>
+                    <lightning:button variant="base" label="label"
+                        class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch"
+                        onclick="{! c.openModalWindow }" />
+                </lightning:card>
+            </aura:set>
+        </aura:if>
+    </aura:if>
+</aura:component>

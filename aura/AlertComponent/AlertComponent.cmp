@@ -1,0 +1,18 @@
+<aura:component>
+    <div class="demo-only demo-only_viewport" style="height:15rem">
+  <div class="slds-notification-container">
+    <div aria-live="assertive" aria-atomic="true" class="slds-assistive-text">event notification: Tesla - Renewal meeting</div>
+    <section class="slds-notification" role="dialog" aria-labelledby="noti52" aria-describedby="dialog-body-id-1">
+      <div class="slds-notification__body" id="dialog-body-id-1">
+        <a class="slds-notification__target slds-media" href="javascript:void(0);">
+          <div class="slds-media__body">
+            <h2 class="slds-text-heading_small slds-m-bottom_xx-small" id="noti52">
+              <span class="slds-assistive-text">event notification:</span>Tesla - Renewal meeting</h2>
+            <p>Event at 11:00am on Jan 8</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+</aura:component>

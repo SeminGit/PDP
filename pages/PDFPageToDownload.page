@@ -1,0 +1,17 @@
+<apex:page controller="DataDisplayController" showHeader="false" renderas="pdf">
+
+    <apex:dataTable value="{!PDFData}" var="price" id="theTable2" rowClasses="odd,even" styleClass="tableClass">
+        <apex:facet name="caption">Products and Prices</apex:facet>
+
+        <apex:column >
+            <apex:facet name="header">Name</apex:facet>
+            <apex:outputText value="{!price.Name}" />
+        </apex:column>
+         <apex:column >
+            <apex:facet name="header">Price(BYN)</apex:facet>
+            <apex:outputText value="{!price.MaxWeight__c}" />
+        </apex:column>
+        
+    </apex:dataTable>
+
+</apex:page>

@@ -1,0 +1,15 @@
+<aura:component>
+    <aura:attribute name="productsList" type="List" />
+    <aura:attribute name="currency" type="Object" />
+    
+    <lightning:layout horizontalAlign="left" verticalAlign="center" multipleRows="true">
+        <aura:iteration items="{!v.productsList}" var="item" indexVar="key">
+            <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+                <div class="slds-m-around_xx-small">
+                    <c:ScooterViewComponent product="{!item.product}" productPrice="{!item.price}"
+                        currency="{!v.currency}" />
+                </div>
+            </lightning:layoutItem>
+        </aura:iteration>
+    </lightning:layout>
+</aura:component>

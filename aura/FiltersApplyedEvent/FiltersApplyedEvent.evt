@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Event template">
+    <aura:attribute name="filters" type="Map"/>
+    <aura:attribute name="operators" type="Map"/>
+    <aura:attribute name="page" type="Integer"/>
+</aura:event>

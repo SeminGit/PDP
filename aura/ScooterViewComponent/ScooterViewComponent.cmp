@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="ProductController">
+    <aura:registerEvent name="productSelected" type="c:ProductShippedEvent" />
+    <aura:attribute name="product" type="Product2" />
+    <aura:attribute name="productPrice" type="Decimal" />
+    <aura:attribute name="currency" type="Object" />
+
+    <div onclick="{!c.productSelectedHandler}">
+        <lightning:card title="{!v.product.Name}" >
+            <lightning:layout horizontalAlign="left" verticalAlign="start">
+                <lightning:layoutItem size="4">
+                    <c:AttachmentImageComponent attachments="{!v.product.Attachments}" />
+                </lightning:layoutItem>
+                <lightning:layoutItem size="4" padding="around-small">
+                    {#$Label.c.productPrice}:
+                    <b><lightning:formattedNumber value="{!div(v.productPrice,v.currency.value)}" maximumFractionDigits="2"/></b>
+                    {!v.currency.label}
+                    <aura:if isTrue="{!v.product.Description}">
+                        <lightning:badge label="{!v.product.Description}" />
+                    </aura:if>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:card>
+    </div>
+</aura:component>

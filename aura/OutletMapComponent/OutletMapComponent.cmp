@@ -1,0 +1,17 @@
+<aura:component controller="OutletController" implements="flexipage:availableForAllPageTypes">
+
+    <aura:registerEvent name="markerSelectedEvent" type="c:OutletShippedEvent" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:attribute name="mapMarkers" type="Object[]" />
+    <aura:attribute name="outlets" type="List" />
+    <aura:attribute name="selectedMarkerValue" type="String" />
+
+    <lightning:card>
+        <lightning:map mapMarkers="{!v.mapMarkers}" markersTitle="{!$Label.c.OutOutlets}" onmarkerselect="{!c.handleMarkerSelect}"
+            selectedMarkerValue="{!v.selectedMarkerValue}">
+        </lightning:map>
+    </lightning:card>
+
+</aura:component>

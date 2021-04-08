@@ -1,0 +1,28 @@
+<aura:component controller="CaseController">
+    <aura:registerEvent name="sendCaseState" type="c:StringShippedEvent" />
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="subject" type="String" />
+    <aura:attribute name="body" type="String" />
+    <aura:attribute name="isSpinnerActive" type="Boolean" />
+
+    <aura:if isTrue="{!v.isSpinnerActive}">
+        <div style="position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;">
+            <lightning:spinner alternativeText="connecting to server" size="small" />
+        </div>
+        <aura:set attribute="else">
+            <div class="slds-box">
+                <lightning:input aura:id="field" type="Email" name="email" label="{!$Label.c.EnterEmail}"
+                    value="{!v.email}" />
+                <lightning:input type="Text" name="subject" label="{#$Label.c.Subject}" value = "{!v.subject}"/>
+                <div class="slds-p-around_small">
+                    <lightning:inputRichText value="{!v.body}" placeholder="{#$Label.c.SuggestionQuestion}"/>
+                </div>
+                <lightning:button class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch" 
+                disabled="{!or(!v.email,!v.body)}"  variant="success" label="{#$Label.c.Submit}" onclick="{! c.submit }"/>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

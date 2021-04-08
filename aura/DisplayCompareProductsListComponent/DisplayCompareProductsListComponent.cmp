@@ -1,0 +1,13 @@
+<aura:component>
+    <aura:attribute name="productsList" type="List"/>
+    <aura:attribute name="currency" type="Object"/>
+    <lightning:layout horizontalAlign="left" verticalAlign="center" multipleRows="false">
+        <aura:iteration items="{!v.productsList}" var="item" indexVar="key">
+            <lightning:layoutItem flexibility="shrink" size="3">
+                <div class="slds-m-around_xx-small ">
+                    <c:DisplayCompareProductComponent product="{!item.product}" productPrice="{!item.price}" currency="{!v.currency}"/>
+                </div>
+            </lightning:layoutItem>
+        </aura:iteration>
+    </lightning:layout>
+</aura:component>

@@ -1,0 +1,30 @@
+<aura:component >
+    <aura:registerEvent name="isOutletsMapOpenedEvent" type="c:BooleanShippedEvent" />
+    <aura:registerEvent name="isCompareWindowOpenedEvent" type="c:BooleanShippedEvent" />
+    <aura:registerEvent name="isCaseModalWindowOpenEvent" type="c:BooleanShippedEvent" />
+    <aura:registerEvent name="downloadPDFEvent" type="c:StringShippedEvent" />
+    <aura:attribute name="items" type="List" />
+
+    <div class="slds-box">
+        <div class="slds-grid ">
+            <div class="slds-m-around_x-small">
+                <c:ChooseCurrencyComponent />
+            </div>
+            <div class="slds-m-around_x-small">
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{#$Label.c.AboutUs}" onclick = "{!c.aboutUsClicked}"/>
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{#$Label.c.Compare}" onclick="{!c.compareClicked}"/>
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{#$Label.c.Help}" onclick="{!c.helpClicked}"/>
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{#$Label.c.OpenPDF}" onclick="{!c.downloadPDFClicked}"/>
+            </div>
+        </div>
+    </div>
+</aura:component>
+<!--  -->

@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForRecordHome,flexipage:availableForAllPageTypes" access="global">
+
+
+    <aura:attribute name="showResult" type="Boolean" default="false" />
+    <aura:attribute name="buttonEnabled" type="Boolean" default="true" />
+
+    <aura:attribute name="date" type="datetime" />
+
+    <lightning:card title="{!$Label.c.TitleNumberIsSimpleCard}">
+
+        <lightning:input type="datetime" name="dateTime" label="Date" value="{!v.date}" onchange="{!c.CheckForNull}" />
+        <lightning:button variant="base" label="calculate" onclick="{! c.calculateDate }"
+            disabled="{!v.buttonEnabled}" />
+        <br />
+        <aura:if isTrue="{!v.showResult}">
+            <lightning:formattedDateTime value="{!v.date}" year="numeric" month="2-digit" day="numeric" weekday="narrow"
+                hour="numeric" minute="numeric" second="numeric" hour12="false" />
+        </aura:if>
+    </lightning:card>
+
+</aura:component>
