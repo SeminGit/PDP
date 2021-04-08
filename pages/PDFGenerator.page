@@ -1,3 +1,0 @@
-<apex:page controller="PDFController" renderAs="pdf">
-    sadasd
-</apex:page>

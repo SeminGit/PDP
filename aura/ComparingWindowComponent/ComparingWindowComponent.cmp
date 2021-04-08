@@ -1,4 +1,0 @@
-<aura:component controller="ProductManager" >
-    <aura:attribute name="productsList" type="List"/>
-    <c:DisplayProductsListComponent productsList = "{!v.productsList}"/>
-</aura:component>

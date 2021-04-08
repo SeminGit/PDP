@@ -1,7 +1,0 @@
-<aura:event type="COMPONENT" description="Event template">
-    <aura:attribute name="product" type="Product2"/>
-    <!-- containts value and label fields -->
-    <aura:attribute name="currencyObj" type="Object"/>
-    <!---->
-    <aura:attribute name="productPrice" type="Decimal"/>
-</aura:event>

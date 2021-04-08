@@ -1,4 +1,0 @@
-<aura:event type="COMPONENT" description="Event template">
-    <aura:attribute name="product" type="Product2"/>
-    <aura:attribute name="productPrice" type="Integer"/>
-</aura:event>

@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT" description="throws outlet">
-    <aura:attribute name="outlet" type="Object"/>
-</aura:event>
