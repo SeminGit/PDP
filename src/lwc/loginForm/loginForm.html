@@ -1,0 +1,18 @@
+<!-- Login Form -->
+<template>
+        <p class="slds-align_absolute-center slds-m-around_small">Login</p>
+        <lightning-input
+                label="Email"
+                name={ELEMENT_NAMES.EMAIL}
+                data-id={ELEMENT_NAMES.EMAIL}
+                onchange={handleChange}
+        ></lightning-input>
+        <lightning-input
+                label="Password"
+                type="password"
+                name={ELEMENT_NAMES.PASSWORD}
+                data-id={ELEMENT_NAMES.PASSWORD}
+                onchange={handleChange}
+        ></lightning-input>
+        <button class="slds-button slds-button_success button slds-m-bottom_small slds-m-top_small" onclick={handleLogin}>Login</button>
+</template>

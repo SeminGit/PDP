@@ -1,0 +1,36 @@
+<!-- Scooter Info Page -->
+<template>
+    <div class="take-full-space">
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="12" data-id="header">
+                <nav class="top-menu">
+                    <ul class="menu-main">
+                        <li class="left-item"><a>{NAME}</a></li>
+                        <li class="right-item"><a onclick={handleButtonNavigation} name={ELEMENT_NAMES.CHARACTERISTICS}>
+                            {ELEMENT_NAMES.CHARACTERISTICS}</a></li>
+                        <li class="right-item"><a onclick={handleButtonNavigation} name={ELEMENT_NAMES.GALLERY}>
+                            {ELEMENT_NAMES.GALLERY}</a></li>
+                        <li class="right-item"><a onclick={handleButtonNavigation} name={ELEMENT_NAMES.DESCRIPTION}>
+                            {ELEMENT_NAMES.DESCRIPTION}</a></li>
+                    </ul>
+                </nav>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <c-page-manager data-id={ELEMENT_NAMES.PAGE_MANAGER}>
+                    <div slot="firstSlot" data-id={ELEMENT_NAMES.DESCRIPTION}>
+                        <c-scooter-description item={itemGetter} price={itemPrice}
+                                               data-id={ELEMENT_NAMES.DESCRIPTION_BODY}></c-scooter-description>
+                    </div>
+                    <div slot="secondSlot" data-id={ELEMENT_NAMES.GALLERY}>
+                        <c-image-gallery parent-id={itemGetterId}
+                                         data-id={ELEMENT_NAMES.GALLERY_BODY}></c-image-gallery>
+                    </div>
+                    <div slot="thirdSlot" data-id={ELEMENT_NAMES.CHARACTERISTICS}>
+                        <c-scooter-charactiristics item={itemGetter}
+                                                   data-id={ELEMENT_NAMES.CHARACTERISTICS_BODY}></c-scooter-charactiristics>
+                    </div>
+                </c-page-manager>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

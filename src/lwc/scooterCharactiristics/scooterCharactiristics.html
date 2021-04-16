@@ -1,0 +1,11 @@
+<!-- Scooter Charactiristics -->
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="4">
+            <c-image-gallery data-id={ELEMENT_NAMES.GALLERY}></c-image-gallery>
+        </lightning-layout-item>
+        <lightning-layout-item size="6">
+            <c-display-info items={itemGetter} data-id={ELEMENT_NAMES.INFO}></c-display-info>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

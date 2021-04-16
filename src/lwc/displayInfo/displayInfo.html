@@ -1,0 +1,16 @@
+<!--
+ - Created by user on 11/27/20.
+ -->
+
+<!-- Display Info -->
+<template>
+    <template for:each={items} for:item="item" for:index="index">
+        <div key={items.Key}>
+            <hr>
+            <div class="large-text">
+                {item.Key} | {item.Value}
+            </div>
+            <hr>
+        </div>
+    </template>
+</template>

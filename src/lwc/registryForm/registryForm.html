@@ -1,0 +1,43 @@
+<!-- Registry Form -->
+<template>
+    <p class="slds-align_absolute-center slds-m-around_small">Registration</p>
+    <lightning-input
+            label="First Name"
+            name={ELEMENT_NAMES.FIRSTNAME}
+            type="text"
+            data-id={ELEMENT_NAMES.FIRSTNAME}
+            onchange={handleChange}
+    ></lightning-input>
+    <lightning-input
+            label="Last Name"
+            type="text"
+            data-id={ELEMENT_NAMES.LASTNAME}
+            name={ELEMENT_NAMES.LASTNAME}
+            onchange={handleChange}
+    ></lightning-input>
+    <lightning-input
+            label="Email"
+            name={ELEMENT_NAMES.EMAIL}
+            type="email"
+            data-id={ELEMENT_NAMES.EMAIL}
+            message-when-bad-input="bad"
+            onchange={handleChange}
+    ></lightning-input>
+    <lightning-input
+            label="Password"
+            name={ELEMENT_NAMES.PASSWORD}
+            type="password"
+            data-id={ELEMENT_NAMES.PASSWORD}
+            onchange={handleChange}
+    ></lightning-input>
+    <lightning-input
+            label="Repeat Password"
+            name="passwordRepeat"
+            type="password"
+            data-id={ELEMENT_NAMES.PASSWORD_REPEAT}
+            onchange={handleChange}
+    ></lightning-input>
+    <button class="slds-button slds-button_success button slds-m-bottom_small slds-m-top_small"
+            onclick={handleRegistry}>Registration
+    </button>
+</template>

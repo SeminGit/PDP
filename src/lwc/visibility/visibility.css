@@ -1,0 +1,61 @@
+.hide {
+    display: none;
+}
+
+.log {
+    display: block;
+    position: relative;
+    /*top: 25%;
+    left: 35%;
+    width: 30%;
+    height: 30%;*/
+}
+
+.reg {
+    display: block;
+    position: relative;
+    /*top: 25%;
+    left: 35%;
+    width: 30%;
+    height: 30%;*/
+}
+
+.button {
+    width: 100%;
+}
+
+.menu-button {
+    appearance: none;
+    padding: 8px 16px;
+    horiz-align: right;
+    color: white;
+    background: black;
+    min-width: 100px;
+    border-radius: 5px;
+    border-color: black;
+    float: right;
+}
+
+.menu-button:hover {
+    appearance: none;
+    padding: 8px 16px;
+    horiz-align: right;
+    color: black;
+    background: white;
+    min-width: 100px;
+    float: right;
+}
+
+.badge {
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+}
+
+
+.text-center {
+    text-align: center;
+}
+.hide{
+    display: none;
+}

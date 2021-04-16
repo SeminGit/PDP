@@ -1,0 +1,14 @@
+.text{
+    text-align: center;
+    text-shadow: #000e29;
+    font-size: 2rem;
+    margin: 10px;
+    border-radius: 15px;
+}
+.row{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 2%;
+}

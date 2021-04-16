@@ -1,0 +1,10 @@
+hr {
+    background-color: black;
+    color: black;
+    height: 2px;
+}
+.large-text{
+    font-size: 40px;
+    word-wrap:break-word;
+    position: relative;
+}

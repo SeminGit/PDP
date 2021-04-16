@@ -1,0 +1,35 @@
+<!--
+ - Created by user on 11/22/20.
+ -->
+
+<!-- Scooter Shop Main -->
+<template>
+    <!-- notifications -->
+    <c-toast-show data-id={ELEMENT_NAMES.TOAST}></c-toast-show>
+    <c-spinner data-id={ELEMENT_NAMES.SPINNER}></c-spinner>
+    <c-modal-window data-id={ELEMENT_NAMES.MODAL_WINDOW}>
+        <c-authorization></c-authorization>
+    </c-modal-window>
+    <!-- -->
+    <!-- pages -->
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" flexibility="auto">
+            <c-main-menu tabindex="0" title={user.Name}></c-main-menu>
+        </lightning-layout-item>
+        <lightning-layout-item size="12">
+            <c-page-manager data-id={ELEMENT_NAMES.PAGE_MANAGER}>
+                <div slot="firstSlot" data-id={ELEMENT_NAMES.HOME_PAGE}>
+                    <c-product-load-and-display tabindex="0" data-id={ELEMENT_NAMES.LIST_BODY}></c-product-load-and-display>
+                </div>
+                <div slot="secondSlot" data-id={ELEMENT_NAMES.INFO_PAGE}>
+                    <c-scooter-info-page data-id={ELEMENT_NAMES.INFO} item={item} price={price}></c-scooter-info-page>
+                </div>
+                <div slot="thirdSlot" data-id={ELEMENT_NAMES.CART_PAGE}>
+                    <c-cart-page data-id={ELEMENT_NAMES.CART}></c-cart-page>
+                </div>
+            </c-page-manager>
+        </lightning-layout-item>
+        <lightning-button onclick={aaa} label="aaa"></lightning-button>
+    </lightning-layout>
+    <!-- -->
+</template>

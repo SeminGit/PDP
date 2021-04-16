@@ -1,0 +1,25 @@
+<!--
+ - Created by user on 11/28/20.
+ -->
+
+<!-- Main Menu -->
+<template>
+    <nav class="top-menu">
+        <ul class="menu-main">
+            <li class="left-item"><a name="Home" onclick={handleButtonClick}>Home</a></li>
+            <li class="left-item"><a>About</a></li>
+            <template if:false={title}>
+                <li class="right-item"><a tabindex="0" name="Login" onclick={handleButtonClick}>Login</a></li>
+                <li class="right-item"><a tabindex="0" name="Registry" onclick={handleButtonClick}>Registry</a></li>
+            </template>
+            <template if:true={title}>
+                <li class="right-item">
+                    <img src="https://cdn.pixabay.com/photo/2013/07/12/19/04/basket-154317_960_720.png"
+                         style="width: 80px;height: 80px;" name="Cart" onclick={handleButtonClick}>
+                </li>
+                <p class="right-item menu-text-block">{title}</p>
+            </template>
+        </ul>
+        <img src="https://cdn.pixabay.com/photo/2017/01/31/23/42/animal-2028258_960_720.png" class="navbar-logo">
+    </nav>
+</template>

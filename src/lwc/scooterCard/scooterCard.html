@@ -1,0 +1,26 @@
+<!--
+ - Created by user on 11/25/20.
+ -->
+
+<!-- Scooter Card -->
+<template>
+    <div onclick={handleClick}>
+        <lightning-card>
+            <div class="slds-grid_vertical">
+                <div class="slds-col">
+                    <c-image-gallery data-id={ELEMENT_NAMES.IMAGE}></c-image-gallery>
+                    <div class="slds-col">
+                        <div class="text">
+                            {Name}
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <div class="text">
+                            {Price} USD
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>

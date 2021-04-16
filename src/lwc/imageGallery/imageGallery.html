@@ -1,0 +1,19 @@
+<!-- Image Gallery -->
+
+<template>
+    <div class="slds-grid" style="position: relative; display: block">
+        <div class="slds-col">
+            <button class="button" data-id={ELEMENT_NAMES.PREVIOUS} onclick={previousImage} >
+                Prev
+            </button>
+        </div>
+        <div class="slds-col">
+            <img class="row" data-id={ELEMENT_NAMES.CURRENT_IMAGE} src={currentImage.imageURL}>
+        </div>
+        <div class="slds-col">
+            <button class="button" data-id={ELEMENT_NAMES.NEXT} onclick={nextImage}>
+                Next
+            </button>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,16 @@
+<!-- Authorization -->
+<template>
+    <div data-id={ELEMENT_NAMES.LOGIN} class="log">
+        <div class="slds-grid">
+            <div class="slds-col">
+             <c-login-form></c-login-form>
+                <button aria-pressed="Sing Up pressed" aria-label="Sing Up Button" class="slds-button slds-button_success button" onclick={handleSingUp}>Sign Up</button>
+            </div>
+        </div>
+    </div>
+    <div data-id={ELEMENT_NAMES.REGISTRATION} class="hide reg">
+        <c-registry-form></c-registry-form>
+        <button class="slds-button slds-button_success button"
+                          onclick={handleCancelReg}>Close</button>
+    </div>
+</template>

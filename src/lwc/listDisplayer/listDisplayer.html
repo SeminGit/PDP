@@ -1,0 +1,12 @@
+<!-- List Displayer -->
+<template>
+    <lightning-layout multiple-rows="true">
+        <template for:each={items} for:item="item">
+            <lightning-layout-item padding="around-small" key={item.Id}
+                                   size="12"
+                                   medium-device-size="4" small-device-size="4" large-device-size="4">
+                <c-scooter-card key={item.Id} item= {item.product} price={item.price}></c-scooter-card>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

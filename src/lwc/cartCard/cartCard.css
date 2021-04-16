@@ -1,0 +1,15 @@
+.button {
+    border-radius: 10px;
+    background: indianred;
+    display: flex;
+    margin-left: auto;
+}
+.container {
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+.price {
+    color: green;
+    margin: 5px;
+}

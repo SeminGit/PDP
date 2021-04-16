@@ -1,0 +1,17 @@
+<template>
+    <div class="container">
+        <ol class="rounded">
+            <template for:each={items} for:item="item">
+                <li key={item.Id}>
+                    <c-cart-card item={item}></c-cart-card>
+                </li>
+            </template>
+        </ol>
+    </div>
+    <div class="total">
+        Total Sum: <span class="price">{totalPrice}</span>
+    </div>
+    <div>
+        <button class="order-button">ORDER</button>
+    </div>
+</template>

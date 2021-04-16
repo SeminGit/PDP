@@ -1,0 +1,11 @@
+<apex:page showHeader="false" standardStylesheets="false">
+    <apex:includeLightning />
+    <apex:pageMessages />
+    <div id="lightning"/>
+    <script>
+    	$Lightning.use("c:ShopApp",function(){
+        	$Lightning.createComponent("c:scooterShopMain",{},"lightning",
+                                       function(component){});
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,24 @@
+<!-- Scooter Description -->
+<template>
+    <div class="main">
+        <lightning-layout multiple-rows="false">
+            <lightning-layout-item size="6">
+                <c-image-gallery data-id={ELEMENT_NAMES.GALLERY} image-parent-id={imageId}></c-image-gallery>
+            </lightning-layout-item>
+            <lightning-layout-item size="4">
+                <div class="text-center title-text">
+                    {Description}
+                </div>
+                <div class="text-center title-text">
+                    {Name}
+                </div>
+                <div class="text-center title-text">
+                    PRICE: {Price} USD
+                 </div>
+                <div>
+                    <button class="slds-button slds-button_success button" style="position: relative; bottom: 0;" onclick={handleAddToCartClick}>Add to Cart</button>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

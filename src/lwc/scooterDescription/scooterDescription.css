@@ -1,0 +1,10 @@
+@import 'c/visibility';
+.main{
+    position: relative;
+    display: block;
+}
+.title-text{
+    font-size: 40px;
+    margin: 10px;
+    word-wrap:break-word;
+}
