@@ -1,0 +1,80 @@
+<aura:component controller="OpportunityController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="markerSelectedEvent" event="c:OutletShippedEvent" action="{!c.mapMarkerSelected}" />
+
+    <aura:registerEvent name="changeStepEvent" type="c:StringShippedEvent" />
+    <aura:attribute name="isMapOpened" type="Boolean" />
+    <!-- customer info -->
+    <aura:attribute name="SObjectName" type="String" />
+    <aura:attribute name="Id" type="String" />
+    <!--  -->
+    <!-- product info -->
+    <aura:attribute name="product" type="Product2" />
+    <aura:attribute name="productPrice" type="Decimal" />
+    <!--  -->
+    <!-- new lead info(if needed) -->
+    <aura:attribute name="emailAttr" type="String" />
+    <aura:attribute name="phoneAttr" type="String" />
+    <aura:attribute name="firstNameAttr" type="String" />
+    <aura:attribute name="lastNameAttr" type="String" />
+    <!--  -->
+    <aura:attribute name="isSpinnerActive" type="Boolean" />
+    <!-- delivery info -->
+    <aura:attribute name="streetAttr" type="String" />
+    <aura:attribute name="cityAttr" type="String" />
+    <aura:attribute name="postCodeAttr" type="String" />
+    <aura:attribute name="deliveryTypes" type="List" />
+    <aura:attribute name="outlets" type="List" />
+    <aura:attribute name="selectedDeliveryType" type="String" />
+    <aura:attribute name="selectedOutlet" type="String" />
+    <!---->
+    <aura:if isTrue="{!v.isSpinnerActive}">
+        <div style="position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;">
+            <lightning:spinner alternativeText="connecting to server" size="small" />
+        </div>
+        <aura:set attribute="else">
+            <!-- delivery types 'screens' -->
+            <!-- fields for new Lead if neede -->
+            <aura:if isTrue="{!not(v.SObjectName)}">
+                <lightning:input type="text" name="firstNameField" value="{!v.firstNameAttr}" label="{#$Label.c.WriteFirstName}" />
+                <lightning:input type="text" name="lastNameField" value="{!v.lastNameAttr}" label="{#$Label.c.WriteLastName}" />
+            </aura:if>
+            <lightning:select aura:id="deliveryTypeChoise" label="{#$Label.c.ChooseDeliveryType}" required="false"
+                onchange="{!c.onDeliveryTypesChanged}">
+                <aura:iteration items="{!v.deliveryTypes}" var="item">
+                    <option text="{!item.key}" value="{!item.value}"></option>
+                </aura:iteration>
+            </lightning:select>
+            <aura:if isTrue="{!v.selectedDeliveryType == 'Pickup'}">
+                <lightning:input type="toggle" name="isMap" label="{#$Label.c.UseMap}" checked="{!v.isMapOpened}"/>
+                <aura:if isTrue="{!v.isMapOpened}">
+                    <c:OutletMapComponent />
+                    <aura:set attribute="else">
+                        <lightning:select aura:id="outletField" label="{#$Label.c.ChooseOutlet}" required="false"
+                            onchange="{!c.onOutletFieldChanged}">
+                            <aura:iteration items="{!v.outlets}" var="item">
+                                <option text="{!item.key}" value="{!item.value}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                    </aura:set>
+                </aura:if>
+            </aura:if>
+            <aura:if isTrue="{!v.selectedDeliveryType == 'Courier'}">
+                <lightning:inputAddress aura:id="addressFields" addressLabel="{#$Label.c.WriteAddress}" streetLabel="{#$Label.c.WriteStreetAndHouseNumber}"
+                    cityLabel="{#$Label.c.WriteCity}" countryLabel="{#$Label.c.WriteCountry}" provinceLabel="{#$Label.c.WriteProvince}" postalCodeLabel="{#$Label.c.WritePostCode}"
+                    street="{!v.streetAttr}" city="{!v.cityAttr}" country="US" province="CA" postalCode="94105"
+                    showAddressLookup="true" />
+            </aura:if>
+            <aura:if isTrue="{!v.selectedDeliveryType == 'Post'}">
+                <lightning:input type="text" name="postCode" label="{#$Label.c.WritePostCode}" value="{!v.postCodeAttr}" />
+            </aura:if>
+            <c:ErrorHandlingComponent aura:id="errorHandler" />
+            <lightning:button variant="brand" label="{#$Label.c.Order}"
+                class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch" onclick="{! c.order }" />
+        </aura:set>
+        <!---->
+    </aura:if>
+</aura:component>

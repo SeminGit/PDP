@@ -1,0 +1,14 @@
+<apex:page showHeader="false" standardStylesheets="false" language="ru">
+    <apex:includeLightning />
+    <apex:pageMessages />
+    <div id="lightning"/>
+    <apex:form >
+        <apex:actionFunction name="testF" action="{!test}"/>
+    </apex:form>
+    <script>
+        $Lightning.use("c:ShopApplication",function(){
+            $Lightning.createComponent("c:ShopApplicationMainComponent",{},"lightning", () => {});
+        });
+    </script>
+    
+</apex:page>

@@ -1,0 +1,248 @@
+<aura:component controller="ProductController">
+    <aura:attribute name="product" type="Product2" default="null"/>
+    <aura:attribute name="productPrice" type="Decimal" default="1"/>
+    <aura:attribute name="currency" type="Object" default="{'value': 1, 'label':'USD'}"/>
+
+    <lightning:recordViewForm objectApiName="Product2"
+                              recordId="{!v.product.Id}">
+        <ul class="slds-has-dividers_top">
+            <li class="slds-item">
+                <div class="slds-align_absolute-center">
+                    <c:AttachmentImageComponent attachments="{!v.product.Attachments}"/>
+                </div>
+                <div>
+                    <lightning:outputField fieldName="Name"/>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <div>{#$Label.c.productPrice} </div>
+                        <lightning:formattedNumber value="{!div(v.productPrice,v.currency.value)}"
+                                                   maximumFractionDigits="2"/>
+                        {!v.currency.label}
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:outputField fieldName="Category__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <div class="slds-text-color_inverse">
+                            <lightning:outputField fieldName="MaxSpeed__c"/>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:outputField fieldName="MaxWeight__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:outputField fieldName="Color__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:outputField fieldName="TravelDistance__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:outputField fieldName="BataryCapacity__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:outputField fieldName="ChargingTime__c"/>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </lightning:recordViewForm>
+
+
+    <!--
+    <lightning:recordEditForm objectApiName="Product2"
+                              recordId="{!v.product.Id}">
+        <ul class="slds-has-dividers_top">
+            <li class="slds-item">
+                <div class="slds-align_absolute-center">
+                    <c:AttachmentImageComponent attachments="{!v.product.Attachments}"/>
+                </div>
+                <div>
+                    <lightning:inputField fieldName="Name"/>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        {#$Label.c.productPrice}:
+                        <lightning:formattedNumber value="{!div(v.productPrice,v.currency.value)}"
+                                                   maximumFractionDigits="2"/>
+                        {!v.currency.label}
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:inputField fieldName="Category__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <div class="slds-text-color_inverse">
+                            <lightning:inputField fieldName="MaxSpeed__c"/>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:inputField fieldName="MaxWeight__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:inputField fieldName="Color__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:inputField fieldName="TravelDistance__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:inputField fieldName="BataryCapacity__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div>
+                        <lightning:inputField fieldName="ChargingTime__c"/>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-item">
+                <div id="list-item">
+                    <div style="width:100%">
+                        <lightning:button class="slds-m-top_small" type="submit" label="update"/>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </lightning:recordEditForm>
+    -->
+    <!--
+    <ul class="slds-has-dividers_top">
+        <li class="slds-item">
+            <div class="slds-align_absolute-center">
+                <c:AttachmentImageComponent attachments="{!v.product.Attachments}" />
+            </div>
+            <div class="list-item">
+                <div class="slds-text-color_inverse">
+                    {!v.product.Name}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div id="list-item">
+                <div class="slds-text-color_inverse">
+                    {#$Label.c.productPrice}:  
+                    <lightning:formattedNumber value="{!div(v.productPrice,v.currency.value)}" maximumFractionDigits="2"/>
+                    {!v.currency.label}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div id="list-item">
+                <div class="slds-text-color_inverse">
+                    {#$Label.c.Category}:
+                    {!v.product.Category__c}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div id="list-item">
+                <div class="slds-text-color_inverse">
+                    {#$Label.c.MaxSpeed}:
+                    {!v.product.MaxSpeed__c}
+                    {#$Label.c.KmPerH}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div id="list-item">
+                <div class="slds-text-color_inverse">
+                    {#$Label.c.MaxWeight}:
+                    {!v.product.MaxWeight__c}
+                    {#$Label.c.Kilogramms}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div id="list-item">
+                <div class="slds-text-color_inverse">
+                    {#$Label.c.Color}:
+                    {!v.product.Color__c}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div id="list-item">
+                <div class="slds-text-color_inverse">
+                    {#$Label.c.MaxDistance}:
+                    {!v.product.TravelDistance__c}
+                    {#$Label.c.Km}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div id="list-item">
+                <div class="slds-text-color_inverse">
+                    {#$Label.c.BataryCapacity}:
+                    {!v.product.BataryCapacity__c}
+                    {#$Label.c.AH}
+                </div>
+            </div>
+        </li>
+        <li class="slds-item">
+            <div id="list-item">
+                <div class="slds-text-color_inverse">
+                    {#$Label.c.ChargingTime}:
+                    {!v.product.ChargingTime__c}
+                    {#$Label.c.Hours}
+                </div>
+            </div>
+        </li>
+    </ul> -->
+</aura:component>

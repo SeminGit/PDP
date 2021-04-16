@@ -1,0 +1,17 @@
+.THIS {
+    /*background: linear-gradient(45deg, #EECFBA, #C5DDE8);*/
+}
+.THIS div.hide{
+    display: none;
+}
+.THIS.max-5 {
+    max-height: 300px;
+    max-width: 300px;
+}
+.THIS.owerflow{
+    position:absolute;
+    width: 100%;
+    top:30px;
+    bottom:60px;
+    overflow-y: auto;
+}

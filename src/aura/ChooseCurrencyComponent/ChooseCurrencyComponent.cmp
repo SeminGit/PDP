@@ -1,0 +1,11 @@
+<aura:component controller="CurrenciesController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="currencyChangedEvent" type="c:CurrencyChangeEvent" />
+    <aura:attribute name="currencies" type="Map" />
+    <aura:attribute name="currencyLabels" type="List" />
+    <lightning:buttonMenu label="{#$Label.c.Currency}" onselect="{! c.currencySelected }" variant="border" alternativeText="Show currencies">
+        <aura:iteration var="label" items="{! v.currencyLabels }">
+            <lightning:menuItem label="{!label}" value="{!label}"/>
+        </aura:iteration>
+    </lightning:buttonMenu>
+</aura:component>

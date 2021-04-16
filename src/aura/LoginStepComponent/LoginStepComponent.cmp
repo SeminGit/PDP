@@ -1,0 +1,27 @@
+<aura:component controller="LoginStepController">
+    <aura:registerEvent name="foundCustomerEvent" type="c:CustomerInfoEvent" />
+    <aura:registerEvent name="notFoundCustomerEvent" type="c:CustomerInfoEvent" />
+    <aura:attribute name="emailAttr" type="String" />
+    <aura:attribute name="phoneAttr" type="String" />
+    <aura:attribute name="isSpinnerActive" type="Boolean" />
+
+    <aura:if isTrue="{!v.isSpinnerActive}">
+        <div style="position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;">
+            <lightning:spinner alternativeText="connecting to server" size="small" variant="base" />
+        </div>
+        <aura:set attribute="else">
+            <ui:message severity="info" closable="false">
+                {!$Label.c.FillEmailAndPhoneFields}
+            </ui:message>
+            <lightning:input aura:id="field" type="email" name="email" label="{#$Label.c.EnterEmail}" value="{!v.emailAttr}" />
+            <lightning:input aura:id = "field" type="tel" name="phone" label="{#$Label.c.EnterPhone}" value="{!v.phoneAttr}" />
+            <c:ErrorHandlingComponent aura:id="errorHandler" />
+            <lightning:button variant="brand" label="{#$Label.c.Next}"
+                    disabled="{!or(!v.emailAttr,!v.phoneAttr)}" onclick="{! c.checkInfo }"
+                    class="slds-size_12-of-12 slds-button slds-button_neutral slds-button_stretch"  />
+            </aura:set>
+    </aura:if>
+</aura:component>

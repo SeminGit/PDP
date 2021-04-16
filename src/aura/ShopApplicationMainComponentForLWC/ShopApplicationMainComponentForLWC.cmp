@@ -1,0 +1,7 @@
+<!--
+ - Created by user on 11/22/20.
+ -->
+
+<aura:component description="ShopApplicationMainComponentForLWC">
+    <c:registry/>
+</aura:component>

@@ -1,0 +1,39 @@
+.THIS div.expandCollapse{
+    cursor : pointer;
+    width:10%;
+    float:right ;
+}
+.THIS #leftAlligment{
+    float: left;
+}
+.THIS #rightAlligment{
+    float: right;
+}
+.THIS #centerAlligment{
+    float: center;
+}
+.THIS #upAlligment{
+    vertical-align: top;
+}
+.THIS.container{
+    display:flex;
+    flex-direction: row;
+    margin: 5px 5px 5px 5px;
+    max-width: 200px;
+    max-height: 200px;
+}
+.THIS div.show{
+    display:block;
+}
+.THIS div.hide{
+    display:none;
+}
+.THIS.margins{
+    margin: 5px 5px 5px 5px;
+}
+.THIS #spinner{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}

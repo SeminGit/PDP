@@ -1,0 +1,30 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="ProductController">
+    <aura:registerEvent name="productSelected" type="c:ProductShippedEvent"/>
+    <aura:attribute name="product" type="Product2"/>
+    <aura:attribute name="productPrice" type="Decimal"/>
+    <aura:attribute name="currency" type="Object"/>
+
+    <div onclick="{!c.productSelectedHandler}" class="slds-box_border">
+        <div class="slds-grid_vertical" id="cursor-link">
+            <div class="slds-col slds-align_absolute-center">
+                <c:AttachmentImageComponent attachments="{!v.product.Attachments}"/>
+            </div>
+            <div class="slds-col" id="grid-col-item">
+                <p id="center-text">
+                    {!v.product.Name}
+                </p>
+            </div>
+            <div class="slds-align_absolute-center"
+                 id="grid-col-item">
+                <p id="center-text">
+                {#$Label.c.productPrice}:
+                <b>
+                    <lightning:formattedNumber value="{!div(v.productPrice, v.currency.value)}"
+                                               maximumFractionDigits="2"/>
+                </b>
+                {!v.currency.label}
+                </p>
+            </div>
+        </div>
+    </div>
+</aura:component>

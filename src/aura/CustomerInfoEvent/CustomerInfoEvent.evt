@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="SObjectName" type="String"/>
+    <aura:attribute name="Id" type="String"/>
+</aura:event>
